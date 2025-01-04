@@ -1,0 +1,28 @@
+{
+  "name": "safinia",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/zolldic/safinia#readme",
+  "bugs": {
+    "url": "https://github.com/zolldic/safinia/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zolldic/safinia.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch --env-file=.env index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "openai": "^4.77.3"
+  }
+}
