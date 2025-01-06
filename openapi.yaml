@@ -1,0 +1,157 @@
+openapi: 3.0.0
+info:
+  title: Grants Management API
+  description: A simple API for managing grants, including creating, modifying, fetching, and deleting grant records.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+paths:
+  /api/v1/grants/new:
+    post:
+      summary: Create a new grant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: The title of the grant.
+                description:
+                  type: string
+                  description: Detailed description of the grant.
+                objective:
+                  type: string
+                  description: The objective of the grant.
+                funding:
+                  type: number
+                  description: The funding amount for the grant.
+                location:
+                  type: string
+                  description: The location of the grant.
+                deadline:
+                  type: string
+                  format: date
+                  description: The application deadline for the grant.
+              required:
+                - title
+                - description
+                - objective
+                - funding
+                - location
+                - deadline
+      responses:
+        201:
+          description: Grant created successfully
+        400:
+          description: Invalid input data
+
+  /api/v1/grants:
+    get:
+      summary: Fetch all grants
+      responses:
+        200:
+          description: A list of all grants
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    description:
+                      type: string
+                    objective:
+                      type: string
+                    funding:
+                      type: number
+                    location:
+                      type: string
+                    deadline:
+                      type: string
+                      format: date
+
+  /api/v1/grants/{title}:
+    get:
+      summary: Fetch a specific grant by title
+      parameters:
+        - name: title
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The title of the grant to fetch.
+      responses:
+        200:
+          description: Grant details retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  objective:
+                    type: string
+                  funding:
+                    type: number
+                  location:
+                    type: string
+                  deadline:
+                    type: string
+                    format: date
+        404:
+          description: Grant not found
+
+    put:
+      summary: Modify an existing grant
+      parameters:
+        - name: title
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The title of the grant to modify.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                funding:
+                  type: number
+                location:
+                  type: string
+                deadline:
+                  type: string
+                  format: date
+      responses:
+        200:
+          description: Grant updated successfully
+        404:
+          description: Grant not found
+
+    delete:
+      summary: Delete a specific grant
+      parameters:
+        - name: title
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The title of the grant to delete.
+      responses:
+        200:
+          description: Grant deleted successfully
+        404:
+          description: Grant not found
