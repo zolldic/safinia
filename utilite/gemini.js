@@ -41,9 +41,9 @@ class Gemini {
   }
 }
 
-const ai = new Gemini();
+const geni = new Gemini();
 
-export default ai;
+export default geni;
 
 /* const note = await ai.generateConceptNote(
   "Sudanese women face increasing violations and lack effective advocacy tools during armed conflicts, leaving them vulnerable to violence and exclusion from peace processes."
