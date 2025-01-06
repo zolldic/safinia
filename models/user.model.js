@@ -15,12 +15,12 @@ class User {
   }
 
   toDict() {
-    return JSON.stringify({
+    return {
       id: this._id,
       email: this._email,
       password: this._password,
       profile: this._profile,
-    });
+    };
   }
 }
 
