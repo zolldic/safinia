@@ -70,4 +70,5 @@ class jsonDB {
 const JSONClient = new jsonDB("db.json");
 JSONClient.connect();
 
+export { jsonDB }; /* test */
 export default JSONClient;

@@ -22,6 +22,8 @@ export default function handler(router) {
     }
   });
 
+  /* ************************************************************************* */
+
   // create a new grant
   router.post(`${BASE}/grants/new`, async (req, res) => {
     try {
